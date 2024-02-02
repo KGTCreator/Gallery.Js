@@ -25,7 +25,9 @@ function animate() {
 	}
 
 	if ((currentTime - mLastFrameTime) > mWaitTime) {
-		swapPhoto();
+		swapPhoto(
+
+		);
 		mLastFrameTime = currentTime;
 	}
 }
@@ -33,11 +35,22 @@ function animate() {
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
 function swapPhoto() {
-	//Add code here to access the #slideShow element.
-	//Access the img element and replace its source
-	//with a new image from your images array which is loaded 
-	//from the JSON string
+
+document.getElementById('photo.src') = mImages[mCurrentIndex].img
+let Date = "Date" = mImages[mCurrentIndex].location;
+let Description = "Description" = mImages[mCurrentIndex].location;
+let location = "Location" = mImages[mCurrentIndex].location;
+
+	location.innerHTML = "Location: " + mImages[mCurrentIndex].location;
+	description.innerHTML = "Description" + mImages[mCurrentIndex].description;
+	data.innerHTML = "Date" +  mImages[mCurrentIndex].data;
 	console.log('swap photo');
+
+	if(mCurrentIndex == mImages.length) {
+		mCurrentIndex = 0;
+	} else {
+		mCurrentIndex += 1;
+	}
 }
 
 // Counter for the mImages array
@@ -69,7 +82,7 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 $(document).ready(function () {
 
 	// This initially hides the photos' metadata information
-	$('.details').eq(0).hide();
+	//$('.details').eq(0).hide();
 	fetchJSON();
 
 });
@@ -89,7 +102,7 @@ function GalleryImage() {
 	//3. the date when the photo was taken
 	let date
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-	let imgSrc
+	let imgSrc = "mImages"
 }
 
 function fetchJSON() {
@@ -99,6 +112,7 @@ function fetchJSON() {
 			if (mRequest.status === 200) {
 				mJson = $.parseJSON(mRequest.responseText);
 				console.log(mJson);
+				
 			}
 		}
 	}
