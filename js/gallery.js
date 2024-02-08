@@ -118,3 +118,5 @@ function fetchJSON() {
 	}
 	mRequest.send();
 };
+
+$( "#mydiv" ).hasClass( "bar" )
