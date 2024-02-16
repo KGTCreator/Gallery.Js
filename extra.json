@@ -1,3 +1,34 @@
 {
-    
+    "images": [
+        {
+            "imgPath": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_1524,q_75,w_1524/v1/crm/cumberland/Strasburg-Railroad_e9e57ae1-5056-a36a-0b87881a06c5383c.jpg",
+            "imgLocation": "Strasburg Railroad",
+            "description": "My personal favorite place to visit is the Strasburg Railroad. Despite it's simple nature of being a short-line railroad, it is home to some of the best memories I've made, and is chalk full of events to keep families entertained.",
+            "date": "6/30/2023"
+        },
+        {
+            "imgPath": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/2f/b7/be/disneyland-hotel-disneyland.jpg",
+            "imgLocation": "Disneyland Hotel",
+            "description": "One of the most comfortable places I can find in California is the premire Disneyland Hotel, at the titular resort of a similar name. It was the first Disney hotel made for the parks, and some of the buildings have small exhibits about the creation of the original park attractions.",
+            "date": "7/23/2023"
+        },
+        {
+            "imgPath": "https://www.lighthousefriends.com/capemay8_2006.jpg",
+            "imgLocation": "Cape May Lighthouse",
+            "description": "For anyone willing to make the climb up  199 steps straight up, this historic lighthouse will not only challenge your endurance, but will act as your beacon into the past of Cape May.",
+            "date": "12/12/2024"
+        },
+        {
+            "imgPath": "https://lsc.org/af93f0c05dafa887c8cb7bb11ab367f2.jpg",
+            "imgLocation": "Libertry Science Center",
+            "description": "This is one of the best family fun centers in the vacinity of NYC. The Liberty Science Center is a complex dedicated, not only to keep families entertained with wild shows of science, but to also tech the young ones different aspects of science. Every now and again, a new premium exhibit will launch with a new theme and style. It changes evety few months!",
+            "date": "1/27/2024"
+        },
+        {
+            "imgPath": "https://www.discoverlancaster.com/imager/s3_us-east-1_amazonaws_com/lancaster-2019/images/blog-images/HersheyBlog_Hero_8ef7ea6302ebfbef14fae837bb7b9c7d.jpg",
+            "imgLocation": "Hersheypark",
+            "description": "A sweet destination for fans of treats and thrills. Hersheypark is home to a variety of rides that test the limits of speed and endurance. If you want a real thrill ride, take a visit, and hope that you don't lose your sweets on the fastest ride!",
+            "date": "9/2/2023"
+        }
+    ]
 }
