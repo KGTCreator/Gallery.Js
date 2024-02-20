@@ -53,6 +53,7 @@ body {
 	position: relative;
 	height: 42px;
 	width: 42px;
+	opacity: 80%;
 }
 
 #nextPhoto {
@@ -60,6 +61,7 @@ body {
 	height: 42px;
 	width: 42px;
 	left: 87%;
+	opacity: 80%;
 }
 
 .details p {
