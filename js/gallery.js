@@ -36,17 +36,16 @@ function animate() {
 
 function swapPhoto() {
 
-if(mCurrentIndex >= mImages.length){
-	mCurrentIndex = 0
-}
-if(mCurrentIndex < 0) {
-	mCurrentIndex = mImages.length-1
-}
+	if (mCurrentIndex >= mImages.length) {
+		mCurrentIndex = 0
+	}
+	if (mCurrentIndex < 0) {
+		mCurrentIndex = mImages.length - 1
+	}
 
 
 
-
-	document.getElementById('photo').src = mImages[mCurrentIndex].imgPath
+	document.getElementById('photo').src = mImages[mCurrentIndex].img
 	let date = document.getElementsByClassName('date');
 	let description = document.getElementsByClassName('description');
 	let location = document.getElementsByClassName('location');
@@ -75,7 +74,7 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'extra.json';
+var mUrl = 'images.json';
 
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
@@ -93,7 +92,6 @@ $(document).ready(function () {
 	// This initially hides the photos' metadata information
 
 	//$('.details').eq(0).hide();
-
 });
 
 window.addEventListener('load', function () {
@@ -102,7 +100,7 @@ window.addEventListener('load', function () {
 
 }, false);
 
-function GalleryImage() {
+function galleryImage() {
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
 	let location
@@ -115,25 +113,53 @@ function GalleryImage() {
 }
 
 function fetchJSON() {
-	mRequest.open("GET", mUrl);
-	mRequest.onload = () => {
-		
-				mJson = $.parseJSON(mRequest.responseText);
-				console.log(mJson);
-				iterateJSON();
+
+	mRequest.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200){
+			mJson = JSON.parse(mRequest.responseText)
+			iterateJSON(mJson)
+			console.log ('ready!')
+		}
 	}
+
+	mRequest.open("GET", mUrl), true;
 	mRequest.send();
-	
+
 };
 
+$(document).ready(function () {
+	$(".moreIndicator").on("click", function () {
+		if ($(".moreIndicator").hasClass("rot90")) {
+			$(".moreInidcator").removeclass('rot90').addClass("rot270")
+		} else {
+			$(".moreIndicator").removeClass("rot270").addClass("rot90")
+		}
+		$('.details').slideToggle();
+	});
 
-function iterateJSON(){
+	$("#prevPhoto").on("click", function () {
+		mCurrentIndex = mCurrentIndex - 2;
+		swapPhoto()
+	});
+
+	$("#nextPhoto").on("click", function () {
+		mCurrentIndex++
+		swapPhoto()
+	});
+	$('#nextPhoto').position({
+		of: '#nav',
+		my: 'right',
+		at: 'right',
+	});
+});
+
+function iterateJSON(mJson) {
 	for (let x = 0; x < mJson.images.length; x++) {
-		mImages[x]= new GalleryImage()
+		mImages = new galleryImage();
 		mImages[x].location = mJson.images[x].imgLocation;
-		mImages[x].description = mJson.images[x].description;
-		mImages[x].imgPath = mJson.images[x].imgPath;
 		mImages[x].date = mJson.images[x].date;
+		mImages[x].img = mJson.images[x].imgPath;
+		mImages[x].description = mJson.images[x].description;
 	}
 }
 
